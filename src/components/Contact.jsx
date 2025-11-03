@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
@@ -10,14 +9,9 @@ const Contact = () => {
     const formRef = useRef(null);
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState({ type: '', message: '' });
-    const [submitted, setSubmitted] = useState(false);
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-
-    const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
