@@ -1,0 +1,127 @@
+/* src/components/About.css */
+
+.about {
+    position: relative;
+    background: var(--background);
+    color: var(--text-primary);
+}
+
+.about .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Layout */
+.about-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+/* Education block */
+.education-info {
+    margin-top: 24px;
+    padding: 16px 18px;
+    background: var(--card-bg);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.education-info h4 {
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    color: var(--accent-color);
+}
+
+/* Highlights grid (right column) */
+.about-highlights {
+    width: 100%;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.highlight-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 18px rgba(15, 20, 25, 0.04);
+}
+
+.highlight-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(20, 110, 180, 0.35);
+    box-shadow: 0 12px 28px rgba(15, 20, 25, 0.08);
+}
+
+.highlight-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: var(--card-bg);
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.highlight-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.highlight-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+}

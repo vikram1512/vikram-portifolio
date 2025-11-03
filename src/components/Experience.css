@@ -1,0 +1,177 @@
+/* src/components/Experience.css */
+
+.experience {
+    background: var(--background);
+    color: var(--text-primary);
+}
+
+.experience .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Layout */
+.experience-content {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+/* Sidebar (companies/jobs) */
+.experience-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 90px; /* below fixed navbar */
+    align-self: start;
+}
+
+.experience-tab {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 2px;
+    align-items: center;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.experience-tab:hover {
+    border-color: rgba(20, 110, 180, 0.35);
+    box-shadow: 0 8px 20px rgba(15, 20, 25, 0.08);
+    transform: translateY(-1px);
+}
+
+.experience-tab.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 24px rgba(20, 110, 180, 0.15);
+}
+
+.tab-icon {
+    grid-row: span 2;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    color: var(--accent-color);
+}
+
+.tab-company {
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--text-primary);
+}
+
+.tab-role {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Main panel */
+.experience-panel {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 22px rgba(15, 20, 25, 0.06);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.job-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.job-title .at {
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.experience-meta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+/* Projects & achievements */
+.project-section {
+    margin-top: 16px;
+}
+
+.project-name {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+}
+
+.achievements-list {
+    padding-left: 18px;
+    display: grid;
+    gap: 8px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+.achievements-list li {
+    list-style: disc;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .experience-content {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-sidebar {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .experience-tab {
+        min-width: 260px;
+    }
+}
+
+@media (max-width: 640px) {
+    .experience-tab {
+        grid-template-columns: 24px 1fr;
+        padding: 10px 12px;
+    }
+
+    .job-title {
+        font-size: 1.05rem;
+    }
+
+    .experience-panel {
+        padding: 16px;
+    }
+}

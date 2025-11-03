@@ -1,38 +1,162 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* ------------------------------
+   Root theme variables
+------------------------------ */
+:root {
+  --primary-color: #ff9900;
+  --secondary-color: #232f3e;
+  --accent-color: #146eb4;
+  --text-primary: #0f1419;
+  --text-secondary: #536471;
+
+  --card-bg: #f7f9fa;
+  --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-amazon: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+  --border: #e5e7eb;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ------------------------------
+   Global resets
+------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+html, body {
+  /*scroll-behavior: smooth;*/
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+/* ------------------------------
+   Section spacing & typography
+------------------------------ */
+section {
+  padding: 40px 5%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 44px 5%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.section--tight {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto 32px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-primary);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 4px;
+  background: var(--gradient-amazon);
+  border-radius: 2px;
+  animation: underline-in 600ms ease forwards;
+}
+
+@keyframes underline-in {
+  to {
+    width: 60px;
+  }
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+.btn,
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary {
+  background: var(--gradient-amazon);
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(15, 20, 25, 0.15);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--accent-color);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(15, 20, 25, 0.1);
+}
+
+/* ------------------------------
+   Uniform subtle animated background
+------------------------------ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 20% 30%, rgba(102,126,234,0.12), transparent 70%),
+  radial-gradient(circle at 80% 70%, rgba(240,147,251,0.12), transparent 70%),
+  radial-gradient(circle at 40% 80%, rgba(79,172,254,0.1), transparent 80%);
+  animation: gentleMove 40s ease-in-out infinite alternate;
+}
+
+@keyframes gentleMove {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2%, -1%) scale(1.03); }
+  100% { transform: translate(2%, 1%) scale(1.02); }
+}
+
+/* ------------------------------
+   Scrollbar
+------------------------------ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(20, 110, 180, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(20, 110, 180, 0.6);
 }
