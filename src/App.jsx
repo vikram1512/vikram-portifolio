@@ -10,11 +10,13 @@ import Skills from './components/Skills';
 import Metrics from './components/Metrics';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
 
   return (
       <div className="App">
+        <ParticleBackground />
         <Navbar />
 
         <main>
